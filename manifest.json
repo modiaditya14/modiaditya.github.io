@@ -1,0 +1,30 @@
+{"lang": "en",
+"icons":[
+  {
+    "src":"/favicon.png",
+    "type":"image/png",
+    "sizes":"200x200",
+    "purpose":"any maskable"
+  },
+  {
+    "src":"/192.png",
+    "type":"image/png",
+    "sizes":"192x192",
+    "purpose":"any maskable"
+  },
+  {
+    "src":"/512.png",
+    "type":"image/png",
+    "sizes":"512x512",
+    "purpose":"any maskable"
+  }
+],
+
+    "name": "ToDo",
+    "short_name": "ToDo",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color":"#000",
+    "background_color": "#fff",
+    "description": "Simple To-do list app"
+  }
