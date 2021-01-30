@@ -86,7 +86,7 @@
             <button type="submit" name=button style="float: auto; padding:0%;margin:0px;width:auto;"><i class="material-icons">	&#xe03b;</i>Add </button>
         </form>
         <button @click="AllDone()" style="float: auto;"><i class="material-icons">&#xe877;</i>Mark all done</button><button @click="AllDel()" style="float: auto;"><i class="material-icons">delete</i>Delete All</button>
-        <ul style="list-style-type:none;">
+        <ul style="list-style-type:none;padding:0;margin:0;">
             <li v-for="todo in todos">
                 <!--input type="checkbox" v-model=todo.done style="width:10px; float: left;" id=check --><button class="ticbut d-hov" v-if="todo.done == true" v-model="thistodo" id=tick @click="tTodo(todo)"><i class="material-icons ticksym">&#xe876;</i></button>
                 <button class="ticbut n-hov" v-else v-model="thistodo" @click="tTodo(todo)">
