@@ -5,73 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#000">
     <meta name="description" content="Simple ToDo list app">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
     <title>ToDo</title>
     <style>
-        body {
-            font-family: sans-serif;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            font-size: 2em;
-            width: 80%;
-            margin: 0 auto;
-          }
-          input, textarea, button, p, div, section, article, select {
-            display: 'block';
-            width: 100%;
-            font-family: sans-serif;
-            font-size: 1em;
-            margin: 0.5em;
-          }
-          
-        img#git-logo{
-            width:7%;
-            height:7%;
-        }
-        .del{
-            border: 0px;
-        }
-        .done{
-        text-decoration: line-through;
-        }
-        button{
-        width: auto;
-        }
-        #check{
-        size: 20px;
-        
-        }
-        .untick{color:rgb(247, 247, 247);}
-        .ticksym{
-        color: rgb(47, 0, 255);
-        }
-        .ticksym:hover{
-        color:rgb(78, 79, 129)
-        }
-        .untick:hover{
-            color:rgb(76, 169, 197)
-            }
-        .ticbut{
-            text-decoration:bold;
-        text-align: center;
-        vertical-align: top;
-        background-color:rgb(247, 247, 247);
-        border-color:rgb(0, 38, 255) ;
-        border-width: 1px;
-        width : 40px;
-        height : 40px;
-        border-radius: 100%;
-        }
-        #bort{
-        text-align: right;
-        position:fixed;
-        bottom: 10px;
-        right:10px;
-        }
-        .d-hov:hover .ticksym{
-            
-                color:rgb(74, 119, 117)
-        }
+        body{font-family:sans-serif;padding-top:1em;padding-bottom:1em;font-size:2em;width:80%;margin:0 auto}article,button,div,input,p,section,select,textarea{display:block;width:100%;font-family:sans-serif;font-size:1em;margin:.5em}img#git-logo{width:7%;height:7%}.del{border:0}.done{text-decoration:line-through}button{width:auto}#check{size:20px}.untick{color:#f7f7f7}.ticksym{color:#2f00ff}.ticksym:hover{color:#4e4f81}.untick:hover{color:#4ca9c5}.ticbut{text-decoration:bold;text-align:center;vertical-align:top;background-color:#f7f7f7;border-color:#0026ff;border-width:1px;width:40px;height:40px;border-radius:100%}#bort{text-align:right;position:fixed;bottom:10px;right:10px}.d-hov:hover .ticksym{color:#4a7775}
     </style>
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/fav.png">
@@ -83,6 +20,7 @@
         <form @submit.prevent="addTodo">
             <label for="newTodo" style="width:auto; float: left; padding:0% 0% 0% 0%; margin:0px;">New Todo</label>
             <input autofocus="autofocus" v-model="newTodo" name=newTodo id =newTodo type=text style="width:50%; padding:0%; margin:0px 20px; border:0px 0px 1px 0px">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <button type="submit" name=button style="float: auto; padding:0%;margin:0px;width:auto;"><i class="material-icons">	&#xe03b;</i>Add </button>
         </form>
         <button @click="AllDone()" style="float: auto;"><i class="material-icons">&#xe877;</i>Mark all done</button><button @click="AllDel()" style="float: auto;"><i class="material-icons">delete</i>Delete All</button>
