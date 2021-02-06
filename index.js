@@ -1,8 +1,5 @@
 // main index.js file
 
-if (localStorage.getItem("ToDolist") == null){
-    localStorage.setItem("ToDolist",JSON.stringify([]))
-}
 
 if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant
@@ -13,11 +10,14 @@ if ('serviceWorker' in navigator) {
 
 const app = new Vue({
             el: '#app',
+            created(){
+
+            },
             data:{
                 title: "Hello !",
                 newTodo: '',
                 thistodo:'',
-                todos:JSON.parse(localStorage.getItem("ToDolist")),
+                todos:JSON.parse(localStorage.getItem("ToDolist")||'[]'),
                 donetext:''
             },
             methods:{
