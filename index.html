@@ -31,6 +31,7 @@
                     <span v-if='todo.edit==false' @dblclick='todo.edit=true' style="float: auto;" :class="{done : todo.done}">{{todo.title}}</span>
                 <span v-else style="float: auto;" :class="{done : todo.done}" class='emode'>
                     <input class=ein
+                    @keyup.enter='todo.edit=false'
                     @dblclick='todo.edit=false'
                      v-model=todo.title
                      @blur='todo.edit=false'>
@@ -126,7 +127,7 @@
     .ein{
         width:auto;
         margin:0
-        
+
     }
 </style>
 </html>
