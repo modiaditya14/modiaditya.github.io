@@ -1,14 +1,15 @@
 const cachename = "static-site"
 const assets =[
-  "/192.png",
-"/512.png",
-"/fav.png",
-"/favicon.png",
-"/Github.png",
-"/index.html",
-"/index.js",
-"/manifest.json",
-"/vue.js",
+  "./192.png",
+"./512.png",
+"./fav.png",
+"./favicon.png",
+"./Github.png",
+"./index.html",
+"./index.js",
+"./manifest.json",
+"./vue.js",
+"./equal.png",
 "https://fonts.googleapis.com/icon?family=Material+Icons"
 ]
 self.addEventListener("install", evt => {

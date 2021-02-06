@@ -7,75 +7,6 @@
     <meta name="description" content="Simple ToDo list app">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>ToDo</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            padding-top: 1em;
-            padding-bottom: 1em;
-            font-size: 2em;
-            width: 80%;
-            margin: 0 auto;
-          }
-          input, textarea, button, p, div, section, article, select {
-            display: 'block';
-            width: 100%;
-            font-family: sans-serif;
-            font-size: 1em;
-            margin: 0.5em;
-          }
-          
-        img#git-logo{
-            width:7%;
-            height:7%;
-        }
-        .del{
-            border: 0px;
-        }
-        .done{
-        text-decoration: line-through;
-        }
-        button{
-        width: auto;
-        }
-        #check{
-        size: 20px;
-        
-        }
-        .untick{color:rgb(247, 247, 247);}
-        .ticksym{
-        color: rgb(47, 0, 255);
-        }
-        .ticksym:hover{
-        color:rgb(78, 79, 129)
-        }
-        .untick:hover{
-            color:rgb(76, 169, 197)
-            }
-        .ticbut{
-            text-decoration:bold;
-        text-align: center;
-        vertical-align: top;
-        background-color:rgb(247, 247, 247);
-        border-color:rgb(0, 38, 255) ;
-        border-width: 1px;
-        width : 40px;
-        height : 40px;
-        border-radius: 100%;
-        }
-        #bort{
-        text-align: right;
-        position:fixed;
-        bottom: 10px;
-        right:10px;
-        }
-        .d-hov:hover .ticksym{
-            
-                color:rgb(74, 119, 117)
-        }
-    </style>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="/fav.png">
-    <link rel="icon" href="/fav.png">
 </head>
 <body>
     <main id="app">
@@ -86,13 +17,15 @@
             <button type="submit" name=button style="float: auto; padding:0%;margin:0px;width:auto;"><i class="material-icons">	&#xe03b;</i>Add </button>
         </form>
         <button @click="AllDone()" style="float: auto;"><i class="material-icons">&#xe877;</i>Mark all done</button><button @click="AllDel()" style="float: auto;"><i class="material-icons">delete</i>Delete All</button>
-        <ul style="list-style-type:none;padding:0;margin:0;">
+        <ul id=mlist>
             <li v-for="todo in todos">
-                <!--input type="checkbox" v-model=todo.done style="width:10px; float: left;" id=check --><button class="ticbut d-hov" v-if="todo.done == true" v-model="thistodo" id=tick @click="tTodo(todo)"><i class="material-icons ticksym">&#xe876;</i></button>
+                <!--input type="checkbox" v-model=todo.done style="width:10px; float: left;" id=check -->
+                    <button class="ticbut d-hov" v-if="todo.done == true" v-model="thistodo" id=tick @click="tTodo(todo)"><i class="material-icons ticksym">&#xe876;</i></button>
                 <button class="ticbut n-hov" v-else v-model="thistodo" @click="tTodo(todo)">
                     <i class="material-icons untick">&#xe876;</i></button>
                 </button>
-                <span style="float: auto;" :class="{done : todo.done}">{{todo.title}}</span>
+                    <span v-if='todo.edit==false' style="float: auto;" :class="{done : todo.done}">{{todo.title}}</span>
+                <span v-else style="float: auto;" :class="{done : todo.done}" class='emode'>{{todo.title}}</span>
                 <button class=del @click="rTodo(todo)" style="float: auto;"><i class="material-icons">delete</i></button>
             </li>
         </ul>
@@ -101,9 +34,88 @@
         <a href=https://github.com/modiaditya14/modiaditya14.github.io><img alt="github repo"src=Github.png id=git-logo width="7%" height= "7%"></a>
 
     </div>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <script src="/vue.js"></script>
-<script src=/index.js></script>
 
 </body>
+
+<script src="./vue.js"></script>
+<script src=/index.js></script>
+<style>
+    
+    body {
+        font-family: sans-serif;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        font-size: 2em;
+        width: 80%;
+        margin: 0 auto;
+      }
+      input, textarea, button, p, div, section, article, select {
+        display: 'block';
+        width: 100%;
+        font-family: sans-serif;
+        font-size: 1em;
+        margin: 0.5em;
+      }
+      
+    img#git-logo{
+        width:7%;
+        height:7%;
+    }
+    .del{
+        border: 0px;
+    }
+    .done{
+    text-decoration: line-through;
+    }
+    button{
+    width: auto;
+    }
+    #check{
+    size: 20px;
+    
+    }
+    .untick{color:rgb(247, 247, 247);}
+    .ticksym{
+    color: rgb(47, 0, 255);
+    }
+    .ticksym:hover{
+    color:rgb(78, 79, 129)
+    }
+    .untick:hover{
+        color:rgb(76, 169, 197)
+        }
+    .ticbut{
+        text-decoration:bold;
+    text-align: center;
+    vertical-align: top;
+    background-color:rgb(247, 247, 247);
+    border-color:rgb(0, 38, 255) ;
+    border-width: 1px;
+    width : 40px;
+    height : 40px;
+    border-radius: 100%;
+    }
+    #bort{
+    text-align: right;
+    position:fixed;
+    bottom: 10px;
+    right:10px;
+    }
+    .d-hov:hover .ticksym{
+        
+            color:rgb(74, 119, 117)
+    }
+    ul#mlist{
+        list-style-image:'/equal.png';
+        list-style-type:none;
+        padding:0;
+        margin:0;
+    }
+    .emode{
+        text-decoration: solid;
+    }
+</style>
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./fav.png">
+<link rel="icon" href="./fav.png">
 </html>

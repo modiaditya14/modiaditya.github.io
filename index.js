@@ -29,26 +29,25 @@ const app = new Vue({
                 addTodo(){
                     this.todos.push({
                         title:this.newTodo,
-                        done:false
+                        done:false,
+                        edit:false
                     });
                     this.newTodo='';this.ref();
-                    
                 },
                 rTodo(todo){
                     const todoindex = this.todos.indexOf(todo);
-                    
                     this.todos.splice(todoindex,1);this.ref();
-                    
                 },
                 AllDone(){
                     this.todos.forEach(todo => {
                         todo.done=true;this.ref();
-                        
                     });
                 },
                 AllDel(){
                     this.todos = [];
                     this.ref();
+                },
+                eTodo(todo){
                 },
                 ref(){
                     localStorage.setItem("ToDolist",JSON.stringify(this.todos))
