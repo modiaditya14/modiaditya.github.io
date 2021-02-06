@@ -26,10 +26,10 @@
                 </button>
                     <span v-if='todo.edit==false' @dblclick='todo.edit=true' style="float: auto;" :class="{done : todo.done}">{{todo.title}}</span>
                 <span v-else style="float: auto;" :class="{done : todo.done}" class='emode'>
-                    <input
-                    @dblclick='dEdit(todo)'
+                    <input class=ein
+                    @dblclick='todo.edit=false'
                      v-model=todo.title
-                     @blur=dEdit()>
+                     @blur='todo.edit=false'>
                     </span>
                 <button class=del @click="rTodo(todo)" style="float: auto;"><i class="material-icons">delete</i></button>
             </li>
@@ -118,6 +118,9 @@
     }
     .emode{
         text-decoration: solid;
+    }
+    .ein{
+        width:auto;
     }
 </style>
 <link rel="manifest" href="./manifest.json">
