@@ -21,6 +21,9 @@ const app = new Vue({
                 donetext:''
             },
             methods:{
+                dEdit(){
+                    todo.edit=false
+                },
                 tTodo(todo){
                   todo.done=!todo.done;
                   this.ref();
@@ -46,8 +49,6 @@ const app = new Vue({
                 AllDel(){
                     this.todos = [];
                     this.ref();
-                },
-                eTodo(todo){
                 },
                 ref(){
                     localStorage.setItem("ToDolist",JSON.stringify(this.todos))

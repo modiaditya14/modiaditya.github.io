@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    
+<head>  
 <link rel="manifest" href="./manifest.json">
 <link rel="apple-touch-icon" href="./fav.png">
 <link rel="icon" href="./fav.png">
@@ -31,10 +30,10 @@
                     <span v-if='todo.edit==false' @dblclick='todo.edit=true' style="float: auto;" :class="{done : todo.done}">{{todo.title}}</span>
                 <span v-else style="float: auto;" :class="{done : todo.done}" class='emode'>
                     <input class=ein
-                    @keyup.enter='todo.edit=false'
-                    @dblclick='todo.edit=false'
+                    @keyup.enter='dEdit()'
+                    @dblclick='dEdit()'
                      v-model=todo.title
-                     @blur='todo.edit=false'>
+                     @blur='dEdit()'>
                     </span>
                 <button class=del @click="rTodo(todo)" style="float: auto;"><i class="material-icons">delete</i></button>
             </li>
