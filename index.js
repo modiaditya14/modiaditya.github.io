@@ -14,15 +14,16 @@ const app = new Vue({
 
             },
             data:{
-                title: "Hello !",
                 newTodo: '',
                 thistodo:'',
                 todos:JSON.parse(localStorage.getItem("ToDolist")||'[]'),
-                donetext:''
+                donetext:'',
+                EditEd = ''
             },
             methods:{
-                dEdit(){
+                dEdit(todo){
                     todo.edit=false
+                    todo.title=this.EditEd
                 },
                 tTodo(todo){
                   todo.done=!todo.done;

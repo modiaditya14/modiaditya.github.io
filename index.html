@@ -13,7 +13,7 @@
 </head>
 <body>
     <main id="app">
-        <h3 style=" padding:0% 0% 0% 0%; margin:0px">{{title}}</h3>
+        <h3 style=" padding:0% 0% 0% 0%; margin:0px">Hello</h3>
         <form @submit.prevent="addTodo">
             <label for="newTodo" style="width:auto; float: left; padding:0% 0% 0% 0%; margin:0px;">New Todo</label>
             <input autofocus="autofocus" v-model="newTodo" name=newTodo id =newTodo type=text style="width:50%; padding:0%; margin:0px 20px; border:0px 0px 1px 0px">
@@ -30,10 +30,11 @@
                     <span v-if='todo.edit==false' @dblclick='todo.edit=true' style="float: auto;" :class="{done : todo.done}">{{todo.title}}</span>
                 <span v-else style="float: auto;" :class="{done : todo.done}" class='emode'>
                     <input class=ein
-                    @keyup.enter='dEdit()'
-                    @dblclick='dEdit()'
+                    v-model=EditEd
+                    @keyup.enter='dEdit(todo)'
+                    @dblclick='dEdit(todo)'
                      v-model=todo.title
-                     @blur='dEdit()'>
+                     @blur='dEdit(todo)'>
                     </span>
                 <button class=del @click="rTodo(todo)" style="float: auto;"><i class="material-icons">delete</i></button>
             </li>
