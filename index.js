@@ -18,7 +18,7 @@ const app = new Vue({
                 thistodo:'',
                 todos:JSON.parse(localStorage.getItem("ToDolist")||'[]'),
                 donetext:'',
-                EditEd = ''
+                EditEd : ''
             },
             methods:{
                 dEdit(todo){
