@@ -30,7 +30,6 @@
                     <span v-if='todo.edit==false' @dblclick='todo.edit=true' style="float: auto;" :class="{done : todo.done}">{{todo.title}}</span>
                 <span v-else style="float: auto;" :class="{done : todo.done}" class='emode'>
                     <input class=ein
-                    v-model=EditEd
                     @keyup.enter='dEdit(todo)'
                     @dblclick='dEdit(todo)'
                      v-model=todo.title
@@ -47,7 +46,7 @@
 
 </body>
 
-<script src="./vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src=/index.js></script>
 <style>
     
@@ -100,7 +99,6 @@
     vertical-align: top;
     background-color:rgb(247, 247, 247);
     border-color:rgb(0, 38, 255) ;
-    border-width: 1px;
     width : 40px;
     height : 40px;
     border-radius: 100%;
