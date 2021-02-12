@@ -4,11 +4,11 @@ const assets =[
 "./512.png",
 "./fav.png",
 "./favicon.png",
-"./Github.png",
+"./Github.webp",
 "./index.html",
 "./index.js",
 "./manifest.json",
-"./vue.js",
+"https://cdn.jsdelivr.net/npm/vue@2",
 "./equal.png",
 "https://fonts.googleapis.com/icon?family=Material+Icons"
 ]
